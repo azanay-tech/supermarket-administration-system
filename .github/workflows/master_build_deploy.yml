@@ -1,0 +1,140 @@
+name: Build React App and Deploy to Netlify Standard Environments
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Test and Build Artifact
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install Client
+      run: npm ci
+
+    - name: Test Client
+      run: npm test -- --passWithNoTests
+
+    - name: Build Client
+      run: npm run build
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: build
+        path: build
+        retention-days: 90
+
+  deploy_to_dev:
+    name: Deploy To Dev Env
+    environment: 
+      name: dev
+      url: 'https://dev--azanay-tech-sas.netlify.app'
+
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v2.0.10
+        with:
+          name: build
+          path: build
+
+      - name: Deploy to Netlify Dev Env
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './build'
+          production-branch: dummy
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy to dev from GitHub Actions"
+          enable-pull-request-comment: false
+          overwrites-pull-request-comment: false
+          enable-commit-comment: false
+          production-deploy: false
+          enable-commit-status: true
+          alias: dev
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
+
+
+  deploy_to_stage:
+    name: Promote to Stage Env
+    environment: 
+      name: stage
+      url: 'https://stage--azanay-tech-sas.netlify.app'
+
+    runs-on: ubuntu-latest
+    needs: deploy_to_dev
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v2.0.10
+        with:
+          name: build
+          path: build
+
+      - name: Deploy to Netlify Stage Env
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './build'
+          production-branch: dummy
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy to stage from GitHub Actions"
+          enable-pull-request-comment: false
+          overwrites-pull-request-comment: false
+          enable-commit-comment: false
+          production-deploy: false
+          enable-commit-status: true
+          alias: stage
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
+
+
+  deploy_to_prod:
+    name: Promote to Production
+    environment:
+      name: production
+      url: 'https://azanay-tech-sas.netlify.app'
+
+    runs-on: ubuntu-latest
+    needs: deploy_to_stage
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v2.0.10
+        with:
+          name: build
+          path: build
+
+      - name: Deploy to Netlify Prod Env
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './build'
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy to prod from GitHub Actions"
+          enable-pull-request-comment: false
+          overwrites-pull-request-comment: false
+          enable-commit-comment: false
+          production-deploy: true
+          enable-commit-status: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
