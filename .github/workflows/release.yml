@@ -1,0 +1,55 @@
+name: Build and Publish Release
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Generate draft release
+        id: create_release
+        uses: release-drafter/release-drafter@v5
+        with:
+          publish: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Client
+        run: npm ci
+        
+      - name: Test Client
+        run: npm run test
+      
+      - name: Build Client
+        run: npm run build
+        
+      - name: tar build
+        run: tar -cvf build.tar build
+        
+      - name: zip build
+        run: zip -r build.zip build
+
+      - name: Upload tar file
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build.tar
+          asset_name: build.tar
+          asset_content_type: application/tar
+          
+      - name: Upload zip file
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build.zip
+          asset_name: build.zip
+          asset_content_type: application/zip
