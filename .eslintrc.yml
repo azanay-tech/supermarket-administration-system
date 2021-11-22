@@ -33,7 +33,7 @@ rules:
   react/react-in-jsx-scope: 0
   react/jsx-indent-props:
     - 2
-    - tab
+    - 4
   react/jsx-props-no-spreading: 'off'
   react/jsx-filename-extension:
     - 1

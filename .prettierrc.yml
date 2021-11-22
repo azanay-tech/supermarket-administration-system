@@ -1,5 +1,4 @@
 singleQuote: true
-useTabs: true
-tabWidth: 2
+tabWidth: 4
 jsxSingleQuote: true
 arrowParens: avoid
