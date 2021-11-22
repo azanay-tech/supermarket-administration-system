@@ -1,34 +1,34 @@
-declare module "*.svg" {
+declare module '*.svg' {
     const content: any;
     export default content;
 }
 
-declare module "*.styl" {
+declare module '*.styl' {
     const content: any;
     export default content;
 }
 
-declare module "*.css" {
+declare module '*.css' {
     const content: any;
     export default content;
 }
 
-declare module "*.scss" {
+declare module '*.scss' {
     const content: any;
     export default content;
 }
 
-declare module "*.less" {
+declare module '*.less' {
     const content: any;
     export default content;
 }
 
-declare module "*.png" {
+declare module '*.png' {
     const content: any;
     export default content;
 }
 
-declare module "*.json" {
+declare module '*.json' {
     const content: any;
     export default content;
 }
