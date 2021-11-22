@@ -23,6 +23,12 @@ jobs:
     - name: Test Client
       run: npm test -- --passWithNoTests
 
+    - name: Code Format - ESLint
+      run: npm run lint:check
+
+    - name: Code Format - Prettier
+      run: npm run prettier:check
+
     - name: Build Client
       run: npm run build
 
