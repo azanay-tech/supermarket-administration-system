@@ -57,6 +57,7 @@ rules:
     - 1
     - argsIgnorePattern: '^_'
   no-console: 1
+  no-plusplus: 0
   import/prefer-default-export: 1
   no-shadow: 1
   prefer-const: 1
