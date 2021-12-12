@@ -25,7 +25,9 @@
         "lint:fix": "npm run lint -- --fix",
         "prettier:check": "prettier --check ./src/**/*.{js,jsx,ts,tsx}",
         "prettier:fix": "prettier --write ./src/**/*.{js,jsx,ts,tsx}",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "generate-fake-data": "node ./scripts/faker.mjs",
+        "mock-server": "json-server --watch db.json --port=3004"
     },
     "eslintConfig": {
         "extends": [
@@ -55,15 +57,21 @@
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-react": "^7.27.1",
         "eslint-plugin-react-hooks": "^4.3.0",
+        "faker": "^5.5.3",
         "husky": "^7.0.4",
+        "json-server": "^0.17.0",
         "lint-staged": "^12.1.2",
         "prettier": "^2.4.1"
     },
     "lint-staged": {
-        "*.{js,jsx,ts,tsx}": [
+        "*.{js,jsx,ts,tsx,mjs}": [
             "eslint --fix",
             "prettier --write",
             "eslint --max-warnings 0",
+            "prettier --check"
+        ],
+        "*.json": [
+            "prettier --write",
             "prettier --check"
         ]
     }
