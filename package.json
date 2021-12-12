@@ -63,7 +63,7 @@
         "*.{js,jsx,ts,tsx}": [
             "eslint --fix",
             "prettier --write",
-            "eslint",
+            "eslint --max-warnings 0",
             "prettier --check"
         ]
     }
