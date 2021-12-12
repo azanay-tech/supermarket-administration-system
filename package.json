@@ -25,7 +25,8 @@
         "lint:fix": "npm run lint -- --fix",
         "prettier:check": "prettier --check ./src/**/*.{js,jsx,ts,tsx}",
         "prettier:fix": "prettier --write ./src/**/*.{js,jsx,ts,tsx}",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "generate-fake-data": "node ./scripts/faker.mjs"
     },
     "eslintConfig": {
         "extends": [
