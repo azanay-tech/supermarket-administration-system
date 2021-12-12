@@ -1,4 +1,5 @@
 import faker from 'faker';
+import fs from 'fs';
 
 const MIN_PASSWORD_LENGTH = 8;
 const MAX_PASSWORD_LENGTH = 14;
@@ -29,4 +30,4 @@ const generateUsers = count => {
     return users;
 };
 
-console.log(generateUsers(10));
+fs.writeFileSync('./db.json', JSON.stringify({ users: generateUsers(10) }));

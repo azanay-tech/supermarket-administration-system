@@ -1,0 +1,104 @@
+{
+    "users": [
+        {
+            "id": "1b9dd579-bf18-440d-bd52-ded168f4fda8",
+            "username": "Phoebe_Walsh",
+            "password": "peOrUDeUNbyXJ",
+            "email": "Gabe_Kuhn@hotmail.com",
+            "displayName": "Crystal Denesik",
+            "contact": "00919010714521",
+            "registeredOn": "2021-07-23T19:53:52.723Z",
+            "lastLogin": "2021-12-11T14:48:52.319Z"
+        },
+        {
+            "id": "4af1af96-5ae3-4b33-ba85-0141c046ae52",
+            "username": "Zula_Effertz2",
+            "password": "zB2LqvumJKeXc",
+            "email": "Moriah66@gmail.com",
+            "displayName": "Angelo Kshlerin",
+            "contact": "00918179159742",
+            "registeredOn": "2021-02-02T05:01:14.513Z",
+            "lastLogin": "2021-12-12T02:57:12.484Z"
+        },
+        {
+            "id": "2072b4b7-4785-440e-a1fb-478dc39db71f",
+            "username": "Annette.Sauer70",
+            "password": "2VV9_qebu",
+            "email": "Jonathon.Ankunding@hotmail.com",
+            "displayName": "Jody Rohan",
+            "contact": "00916328540487",
+            "registeredOn": "2021-09-07T05:39:41.365Z",
+            "lastLogin": "2021-12-11T21:56:31.970Z"
+        },
+        {
+            "id": "e443b8a2-0609-4745-9a67-6f4a42eab9ff",
+            "username": "Amely_Kilback",
+            "password": "jjB_7IqeNX",
+            "email": "Everette_Franecki@gmail.com",
+            "displayName": "Laurence Waters",
+            "contact": "00911213598643",
+            "registeredOn": "2020-12-25T15:31:10.651Z",
+            "lastLogin": "2021-12-12T08:03:56.853Z"
+        },
+        {
+            "id": "ea5e54da-58ae-4d81-9b54-898b2b5a04ae",
+            "username": "Gwen.Boehm99",
+            "password": "xeUKK3oi",
+            "email": "Conrad83@hotmail.com",
+            "displayName": "Adam Lind",
+            "contact": "00911558892625",
+            "registeredOn": "2021-03-17T14:01:28.037Z",
+            "lastLogin": "2021-12-12T00:56:33.719Z"
+        },
+        {
+            "id": "e2e0f909-3fc5-4d10-bdb5-689f7aadeaee",
+            "username": "Hellen.Gutkowski",
+            "password": "3ajT2rmyS9c",
+            "email": "Maeve79@yahoo.com",
+            "displayName": "Jan Braun",
+            "contact": "00914079101308",
+            "registeredOn": "2021-10-09T09:09:07.908Z",
+            "lastLogin": "2021-12-11T12:27:48.083Z"
+        },
+        {
+            "id": "0ebe86c3-4f19-450a-88ed-d41cf22af94b",
+            "username": "Caroline43",
+            "password": "DNMzhWBS",
+            "email": "Paige_Mitchell@yahoo.com",
+            "displayName": "Cedric Kihn",
+            "contact": "00916092682774",
+            "registeredOn": "2021-01-31T11:28:43.383Z",
+            "lastLogin": "2021-12-11T12:33:49.150Z"
+        },
+        {
+            "id": "881356bc-101c-4548-a1dd-a18f76aec8d1",
+            "username": "Princess80",
+            "password": "32ZSCMY9jsG",
+            "email": "Marlee85@hotmail.com",
+            "displayName": "Gertrude Bednar",
+            "contact": "00917581851129",
+            "registeredOn": "2021-05-14T21:28:57.209Z",
+            "lastLogin": "2021-12-11T15:38:45.205Z"
+        },
+        {
+            "id": "4f80aded-f7b1-4a0f-a921-2e4f6ff059b4",
+            "username": "Trisha61",
+            "password": "V3wcb8moZ5ww",
+            "email": "Alf_Kovacek@yahoo.com",
+            "displayName": "Dolores Ziemann",
+            "contact": "00917184682154",
+            "registeredOn": "2021-01-20T12:11:01.259Z",
+            "lastLogin": "2021-12-12T05:52:47.980Z"
+        },
+        {
+            "id": "0f0a1e7c-2b9a-4cf0-92c7-e50df3db2062",
+            "username": "Chance.Spencer20",
+            "password": "laHENVSpNAEhX0",
+            "email": "Tobin_Considine62@yahoo.com",
+            "displayName": "Emmett Berge",
+            "contact": "00915713663670",
+            "registeredOn": "2020-12-30T08:28:08.471Z",
+            "lastLogin": "2021-12-11T12:56:48.766Z"
+        }
+    ]
+}
