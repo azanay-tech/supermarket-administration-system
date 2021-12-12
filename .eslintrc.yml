@@ -76,6 +76,16 @@ rules:
     - props: true
       ignorePropertyModificationsFor:
         - state
+  import/no-extraneous-dependencies:
+    - 2
+    - devDependencies:
+          - 'scripts/*.mjs'
+          - 'scripts/*.js'
+          - 'scripts/*.ts'
+          - '**/*.test.js'
+          - '**/*.test.ts'
+          - '**/*.spec.js'
+          - '**/*.spec.ts'
 settings:
   import/resolver:
     node:
