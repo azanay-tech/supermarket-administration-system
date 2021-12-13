@@ -15,7 +15,7 @@
         "build": "next build",
         "build:static": "next build && next export",
         "start": "next start",
-        "test": "react-scripts test",
+        "test": "jest",
         "lint:check": "eslint ./src/**/*.{js,jsx,ts,tsx}",
         "lint:fix": "npm run lint -- --fix",
         "prettier:check": "prettier --check ./src/**/*.{js,jsx,ts,tsx}",
