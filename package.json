@@ -13,6 +13,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "build:static": "next build && next export",
         "start": "next start",
         "test": "react-scripts test",
         "lint:check": "eslint ./src/**/*.{js,jsx,ts,tsx}",
