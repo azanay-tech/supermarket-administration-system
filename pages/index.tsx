@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 
 const Home = () => (
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
@@ -10,7 +11,7 @@ const Home = () => (
         <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
             <h1 className='text-6xl font-bold'>
                 Welcome to{' '}
-                <a className='text-blue-600' href='https://nextjs.org'>
+                <a className='text-blue-600' href='https://nsextjs.org'>
                     Next.js!
                 </a>
             </h1>
@@ -77,7 +78,14 @@ const Home = () => (
                 rel='noopener noreferrer'
             >
                 Powered by{' '}
-                <img src='/vercel.svg' alt='Vercel Logo' className='h-4 ml-2' />
+                <div className='h-4 ml-2'>
+                    <Image
+                        src='/vercel.svg'
+                        alt='Vercel Logo'
+                        width={70}
+                        height={16}
+                    />
+                </div>
             </a>
         </footer>
     </div>
