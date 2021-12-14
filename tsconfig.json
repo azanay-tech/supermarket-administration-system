@@ -1,29 +1,24 @@
 {
-  "compilerOptions": {
-    "target": "es2018",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2018",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "alwaysStrict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "sourceMap": true
-  },
-  "include": [
-    "src"
-  ]
+    "compilerOptions": {
+        "target": "es2018",
+        "lib": ["dom", "dom.iterable", "es2018", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": true,
+        "incremental": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+        "sourceMap": true
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src"],
+    "exclude": ["node_modules"]
 }
