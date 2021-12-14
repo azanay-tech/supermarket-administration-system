@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.4
       with:
         name: build
-        path: build
+        path: .next
         retention-days: 1
 
   deploy_to_preview:
@@ -50,12 +50,12 @@ jobs:
       uses: actions/download-artifact@v2.0.10
       with:
         name: build
-        path: build
+        path: .next
 
     - name: Deploy to Netlify Preview Env
       uses: nwtgck/actions-netlify@v1.2
       with:
-        publish-dir: './build'
+        publish-dir: './.next'
         production-branch: dummy
         github-token: ${{ secrets.GITHUB_TOKEN }}
         deploy-message: "Preview Deploy from GitHub Actions"
