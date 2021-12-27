@@ -1,4 +1,4 @@
-name: Build React App and Deploy to Netlify Preview Environment
+name: Build NextJS App and Deploy to Netlify Preview Environment
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Test and Build Artifact
+    name: Build and Deploy app
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -32,9 +32,40 @@ jobs:
     - name: Build Client
       run: npm run build
 
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v2.2.4
+    - name: 🚀 Deploy to Netlify Preview Env
+      id: netlify_preview_deployment
+      env:
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      run: |
+        echo "::set-output name=deployed_url::$(npx netlify-cli deploy --build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --open | grep -oP '(?<=Website Draft URL: ).*' | xargs)"
+
+    - name: Find existing deployment comment on PR
+      uses: peter-evans/find-comment@v1
+      id: find_comment
       with:
-        name: build
-        path: .next
-        retention-days: 1
+        issue-number: ${{ github.event.pull_request.number }}
+        body-includes: Netlify Preview Deployment
+
+    - name: Create PR comment with deployment URL
+      if: steps.find_comment.outputs.comment-id == ''
+      uses: peter-evans/create-or-update-comment@v1
+      env:
+        DEPLOYED_URL: ${{ steps.netlify_preview_deployment.outputs.deployed_url }}
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          🚀 Netlify Preview Deployment:
+          ${{ steps.netlify_preview_deployment.outputs.deployed_url }}
+
+    - name: Update existing comment with deployment URL
+      if: steps.find_comment.outputs.comment-id != ''
+      uses: peter-evans/create-or-update-comment@v1
+      env:
+        DEPLOYED_URL: ${{ steps.netlify_preview_deployment.outputs.deployed_url }}
+      with:
+        comment-id: ${{ steps.find_comment.outputs.comment-id }}
+        body: |
+          🚀 Netlify Preview Deployment:
+          ${{ steps.netlify_preview_deployment.outputs.deployed_url }}
+        edit-mode: replace
