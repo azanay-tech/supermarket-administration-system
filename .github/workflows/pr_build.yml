@@ -42,6 +42,7 @@ jobs:
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         NEXT_PUBLIC_ENVIRONMENT: preview-${{ github.head_ref }}
         NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+        NEXT_PUBLIC_SENTRY: ${{ secrets.ENABLE_SENTRY }}
       run: |
         echo "::set-output name=deployed_url::$(npx netlify-cli deploy --build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --open | grep -oP '(?<=Website Draft URL: ).*' | xargs)"
 
