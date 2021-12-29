@@ -2,3 +2,9 @@
   package = "@netlify/plugin-nextjs"
 [build]
   publish = ".next"
+
+[[plugins]]
+  package = "@sentry/netlify-build-plugin"
+  [plugins.inputs]
+    sentryOrg = "azanay-tech"
+    sentryProject = "nextjs"

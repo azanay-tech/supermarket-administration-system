@@ -30,6 +30,8 @@ jobs:
       run: npm run prettier:check
 
     - name: Build Client
+      env:
+        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       run: npm run build
 
     - name: 🚀 Deploy to Netlify Preview Env
@@ -37,6 +39,10 @@ jobs:
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        NEXT_PUBLIC_ENVIRONMENT: preview-${{ github.head_ref }}
+        NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+        NEXT_PUBLIC_SENTRY: ${{ secrets.ENABLE_SENTRY }}
       run: |
         echo "::set-output name=deployed_url::$(npx netlify-cli deploy --build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --open | grep -oP '(?<=Website Draft URL: ).*' | xargs)"
 
