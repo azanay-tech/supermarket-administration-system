@@ -40,7 +40,7 @@ jobs:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-        NEXT_PUBLIC_ENVIRONMENT: preview-${{ github.head_ref }}
+        NEXT_PUBLIC_ENVIRONMENT: preview
         NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         NEXT_PUBLIC_SENTRY: ${{ secrets.ENABLE_SENTRY }}
         NEXT_PUBLIC_LOGROCKET: ${{ secrets.ENABLE_LOGROCKET }}
