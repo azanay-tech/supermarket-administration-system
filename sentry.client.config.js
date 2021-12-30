@@ -5,6 +5,7 @@
  */
 
 import * as Sentry from '@sentry/nextjs';
+import LogRocket from 'logrocket';
 import { bool } from './utils';
 
 const SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN;
@@ -22,3 +23,5 @@ if (bool(process.env.NEXT_PUBLIC_SENTRY)) {
          */
     });
 }
+
+LogRocket.init(process.env.NEXT_PUBLIC_LOGROCKET_ID);
