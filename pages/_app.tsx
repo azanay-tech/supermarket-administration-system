@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import LogRocket from 'logrocket';
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
@@ -21,6 +22,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                 subscriptionType:
                     process.env.NEXT_PUBLIC_SUBSCRIPTION_TYPE ||
                     'unknown-subscription-type',
+            });
+        }
+
+        if (bool(process.env.NEXT_PUBLIC_SENTRY)) {
+            Sentry.configureScope(scope => {
+                scope.setExtra(
+                    'Username',
+                    process.env.NEXT_PUBLIC_APP_USER_ID || 'Anonymous'
+                );
             });
         }
     }, []);
