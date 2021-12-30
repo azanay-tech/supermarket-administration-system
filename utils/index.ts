@@ -6,10 +6,9 @@
  * @returns boolean value if input belongs to ['true', 'on', 1]
  */
 export const bool = (value: string | undefined | null): boolean =>
-    !!value &&
-    (value.toLowerCase() === 'true' ||
-        value.toLowerCase() === 'on' ||
-        value.toLowerCase() === '1');
+    compareStrings(value, 'true') ||
+    compareStrings(value, 'on') ||
+    compareStrings(value, '1');
 
 /**
  * Compares the equality of two strings.
