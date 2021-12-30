@@ -43,6 +43,11 @@ jobs:
         NEXT_PUBLIC_ENVIRONMENT: preview-${{ github.head_ref }}
         NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         NEXT_PUBLIC_SENTRY: ${{ secrets.ENABLE_SENTRY }}
+        NEXT_PUBLIC_LOGROCKET: ${{ secrets.ENABLE_LOGROCKET }}
+        NEXT_PUBLIC_LOGROCKET_ID: ${{ secrets.LOGROOCKET_ID }}
+        NEXT_PUBLIC_APP_USER_ID: 'azanay-tech-preview'
+        NEXT_PUBLIC_SUBSCRIPTION_TYPE: ${{ secrets.SUBSCRIPTION_TYPE }}
+        NEXT_PUBLIC_CLIENT_ID: 'preview-client'
       run: |
         echo "::set-output name=deployed_url::$(npx netlify-cli deploy --build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --open | grep -oP '(?<=Website Draft URL: ).*' | xargs)"
 
