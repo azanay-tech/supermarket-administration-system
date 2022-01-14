@@ -1,94 +1,91 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import {
+    StyledA,
+    StyledAOne,
+    StyledATwo,
+    StyledCode,
+    StyledDiv,
+    StyledDivOne,
+    StyledFooter,
+    StyledH1,
+    StyledH3,
+    StyledHeader,
+    StyledMain,
+    StyledP,
+    StyledPOne,
+} from '../styles/index.styled';
 
 const Home = () => (
-    <div className='flex flex-col items-center justify-center min-h-screen py-2'>
+    <StyledHeader>
         <Head>
             <title>Create Next App</title>
             <link rel='icon' href='/favicon.ico' />
         </Head>
 
-        <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
-            <h1 className='text-6xl font-bold'>
+        <StyledMain>
+            <StyledH1>
                 Welcome to{' '}
-                <a className='text-blue-600' href='https://nsextjs.org'>
-                    Next.js!
-                </a>
-            </h1>
+                <StyledAOne href='https://nsextjs.org'>Next.js!</StyledAOne>
+            </StyledH1>
 
-            <p className='mt-3 text-2xl'>
-                Get started by editing{' '}
-                <code className='p-3 font-mono text-lg bg-gray-100 rounded-md'>
-                    pages/index.js
-                </code>
-            </p>
+            <StyledPOne>
+                Get started by editing <StyledCode>pages/index.js</StyledCode>
+            </StyledPOne>
 
-            <div className='flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full'>
-                <a
-                    href='https://nextjs.org/docs'
-                    className='p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600'
-                >
-                    <h3 className='text-2xl font-bold'>Documentation &rarr;</h3>
-                    <p className='mt-4 text-xl'>
+            <StyledDivOne>
+                <StyledA href='https://nextjs.org/docs'>
+                    <StyledH3>Documentation &rarr;</StyledH3>
+                    <StyledP>
                         Find in-depth information about Next.js features and
                         API.
-                    </p>
-                </a>
+                    </StyledP>
+                </StyledA>
 
-                <a
-                    href='https://nextjs.org/learn'
-                    className='p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600'
-                >
-                    <h3 className='text-2xl font-bold'>Learn &rarr;</h3>
-                    <p className='mt-4 text-xl'>
+                <StyledA href='https://nextjs.org/learn'>
+                    <StyledH3>Learn &rarr;</StyledH3>
+                    <StyledP>
                         Learn about Next.js in an interactive course with
                         quizzes!
-                    </p>
-                </a>
+                    </StyledP>
+                </StyledA>
 
-                <a
-                    href='https://github.com/vercel/next.js/tree/master/examples'
-                    className='p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600'
-                >
-                    <h3 className='text-2xl font-bold'>Examples &rarr;</h3>
-                    <p className='mt-4 text-xl'>
+                <StyledA href='https://github.com/vercel/next.js/tree/master/examples'>
+                    <StyledH3>Examples &rarr;</StyledH3>
+                    <StyledP>
                         Discover and deploy boilerplate example Next.js
                         projects.
-                    </p>
-                </a>
+                    </StyledP>
+                </StyledA>
 
-                <a
-                    href='https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-                    className='p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600'
-                >
-                    <h3 className='text-2xl font-bold'>Deploy &rarr;</h3>
-                    <p className='mt-4 text-xl'>
+                <StyledA href='https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'>
+                    <StyledH3>Deploy &rarr;</StyledH3>
+                    <StyledP>
                         Instantly deploy your Next.js site to a public URL with
                         Vercel.
-                    </p>
-                </a>
-            </div>
-        </main>
+                    </StyledP>
+                </StyledA>
+            </StyledDivOne>
+        </StyledMain>
 
-        <footer className='flex items-center justify-center w-full h-24 border-t'>
-            <a
-                className='flex items-center justify-center'
+        <StyledFooter>
+            <StyledATwo
                 href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
                 target='_blank'
                 rel='noopener noreferrer'
             >
                 Powered by{' '}
-                <div className='h-4 ml-2'>
+                <StyledDiv>
                     <Image
                         src='/vercel.svg'
                         alt='Vercel Logo'
                         width={70}
                         height={16}
                     />
-                </div>
-            </a>
-        </footer>
-    </div>
+                </StyledDiv>
+            </StyledATwo>
+        </StyledFooter>
+    </StyledHeader>
 );
 
 export default Home;

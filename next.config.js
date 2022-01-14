@@ -2,6 +2,10 @@ const { withSentryConfig } = require('@sentry/nextjs');
 
 const moduleExports = {
     /* All nextJS config should go here */
+    experimental: {
+        /* Enables the styled-components SWC transform */
+        styledComponents: true,
+    },
 };
 
 const sentryWebpackPluginOptions = {
