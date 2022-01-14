@@ -1,9 +1,14 @@
-import * as Sentry from '@sentry/nextjs';
 import LogRocket from 'logrocket';
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import '../styles/globals.css';
+import tailwindConfig from '../tailwind.config.js';
+import resolveConfig from 'tailwindcss/resolveConfig';
 import { bool } from '../utils';
+
+const fullConfig = resolveConfig(tailwindConfig);
+
+console.log(fullConfig);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     useEffect(() => {
