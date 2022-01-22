@@ -5,6 +5,7 @@ env:
   jest: true
 extends:
   - 'plugin:react/recommended'
+  - 'plugin:cypress/recommended'
   - airbnb
   - prettier
   - 'plugin:@next/next/recommended'

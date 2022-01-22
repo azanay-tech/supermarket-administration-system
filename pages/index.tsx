@@ -17,7 +17,7 @@ import {
 } from '../styles/index.styled';
 
 const Home = () => (
-    <StyledHeader>
+    <StyledHeader data-testid='app_container'>
         <Head>
             <title>Create Next App</title>
             <link rel='icon' href='/favicon.ico' />
@@ -34,7 +34,10 @@ const Home = () => (
             </StyledPOne>
 
             <StyledDivOne>
-                <StyledA href='https://nextjs.org/docs'>
+                <StyledA
+                    data-testid='link_block'
+                    href='https://nextjs.org/docs'
+                >
                     <StyledH3>Documentation &rarr;</StyledH3>
                     <StyledP>
                         Find in-depth information about Next.js features and
@@ -42,7 +45,10 @@ const Home = () => (
                     </StyledP>
                 </StyledA>
 
-                <StyledA href='https://nextjs.org/learn'>
+                <StyledA
+                    data-testid='link_block'
+                    href='https://nextjs.org/learn'
+                >
                     <StyledH3>Learn &rarr;</StyledH3>
                     <StyledP>
                         Learn about Next.js in an interactive course with
@@ -50,7 +56,10 @@ const Home = () => (
                     </StyledP>
                 </StyledA>
 
-                <StyledA href='https://github.com/vercel/next.js/tree/master/examples'>
+                <StyledA
+                    data-testid='link_block'
+                    href='https://github.com/vercel/next.js/tree/master/examples'
+                >
                     <StyledH3>Examples &rarr;</StyledH3>
                     <StyledP>
                         Discover and deploy boilerplate example Next.js
@@ -58,7 +67,10 @@ const Home = () => (
                     </StyledP>
                 </StyledA>
 
-                <StyledA href='https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'>
+                <StyledA
+                    data-testid='link_block'
+                    href='https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
+                >
                     <StyledH3>Deploy &rarr;</StyledH3>
                     <StyledP>
                         Instantly deploy your Next.js site to a public URL with

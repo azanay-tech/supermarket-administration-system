@@ -63,6 +63,18 @@ jobs:
           NEXT_PUBLIC_CLIENT_ID: ${{ secrets.LOG_ROCKET_CLIENT_ID }}
         run: |
           npx netlify-cli deploy --build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --open --alias "$DEPLOYMENT_ALIAS"
+
+      - name: Cypress E2E on Dev
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          browser: chrome
+          headless: true
+          config: baseUrl=https://dev--azanay-tech-sas.netlify.app
+          tag: dev
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
   promote_to_stage:
     name: Approval to Promote to Stage
@@ -109,6 +121,18 @@ jobs:
           NEXT_PUBLIC_CLIENT_ID: ${{ secrets.LOG_ROCKET_CLIENT_ID }}
         run: |
           npx netlify-cli deploy --build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --open --alias "$DEPLOYMENT_ALIAS"
+
+      - name: Cypress E2E on Stage
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          browser: chrome
+          headless: true
+          config: baseUrl=https://stage--azanay-tech-sas.netlify.app
+          tag: stage
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   promote_to_prod:
     name: Approval to Promote to Production
