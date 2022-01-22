@@ -29,7 +29,7 @@
         "generate-fake-data": "node ./scripts/faker.mjs",
         "mock-server": "json-server --watch db.json --port=3004",
         "cy:open": "cypress open",
-        "cy:run": "cypress run --browser chrome --headless"
+        "cy:run": "cypress run --browser chrome --headless --record false"
     },
     "eslintConfig": {
         "extends": [
