@@ -29,10 +29,14 @@ jobs:
     - name: Test Client
       run: npm test -- --passWithNoTests
 
+    - name: Build Client
+      env:
+        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      run: npm run build
+
     - name: Cypress E2E
       uses: cypress-io/github-action@v2
       with:
-        build: npm run build
         start: npm start -- --port 3000
         record: true
         browser: chrome
@@ -40,15 +44,9 @@ jobs:
         config: baseUrl=http://localhost:3000
         tag: preview
       env:
-        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}-${{ github.run_number }} #Override default title on cypress dashboard
-
-    - name: Build Client
-      env:
-        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      run: npm run build
 
     - name: 🚀 Deploy to Netlify Preview Env
       id: netlify_preview_deployment
